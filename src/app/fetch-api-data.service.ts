@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/internal/operators';
+import { catchError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -31,7 +31,7 @@ export class UserRegistrationService {
 
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
-    //requires the token to get all movies
+    //requires the token to get all movies, pulls from local storage after login
     return this.http
       .get(apiUrl + 'movies', {
         headers: new HttpHeaders({
@@ -43,8 +43,8 @@ export class UserRegistrationService {
         catchError(this.handleError)
       );
   }
-
-  getSingleMovie(title: string): Observable<any> {
+//Title, Director name, Genre are all strings
+  getMovie(title: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
       .get(`${apiUrl}movies/${title}`, {
@@ -89,6 +89,7 @@ export class UserRegistrationService {
   getUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
+    //get from local storage return from db
     return this.http
       .get(`${apiUrl}users/${username}`, {
         headers: new HttpHeaders({
@@ -176,25 +177,10 @@ export class UserRegistrationService {
       );
   }
 
-
-
-
-
-
-
-  // Non-typed response extraction
   private extractResponseData(res: any): any {
     const body = res;
     return body || {};
   }
-
-
-
-
-
-
-
-
 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
