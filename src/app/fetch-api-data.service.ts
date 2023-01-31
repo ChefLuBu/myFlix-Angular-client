@@ -46,6 +46,7 @@ export class UserRegistrationService {
 //Title, Director name, Genre are all strings
   getMovie(title: string): Observable<any> {
     const token = localStorage.getItem('token');
+    console.log("token check", token)
     return this.http
       .get(`${apiUrl}movies/${title}`, {
         headers: new HttpHeaders({

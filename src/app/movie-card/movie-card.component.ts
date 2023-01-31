@@ -1,7 +1,8 @@
 // src/app/movie-card/movie-card.component.ts
 import { Component, OnInit } from '@angular/core';
 import { UserRegistrationService } from '../fetch-api-data.service'
-
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-card',
@@ -10,6 +11,7 @@ import { UserRegistrationService } from '../fetch-api-data.service'
 })
 export class MovieCardComponent {
   movies: any[] = [];
+  //movies declared as an array 
   constructor(public UserRegistrationService: UserRegistrationService,) { }
 
 ngOnInit(): void {
@@ -17,8 +19,8 @@ ngOnInit(): void {
 }
 
 getMovies(): void {
-  this.UserRegistrationService.getAllMovies().subscribe((resp: any) => {
-      this.movies = resp;
+  this.UserRegistrationService.getAllMovies().subscribe((res: any) => {
+      this.movies = res;
       console.log(this.movies);
       return this.movies;
     });

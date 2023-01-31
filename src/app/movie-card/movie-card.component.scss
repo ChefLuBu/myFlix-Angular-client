@@ -1,0 +1,14 @@
+  div.movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    mat-card {
+        max-width: 300px;
+      img {
+        // width: 300px;
+        height: auto;
+
+      }
+    }
+  }
