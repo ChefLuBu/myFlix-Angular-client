@@ -17,12 +17,19 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { DirectorViewComponent } from './director-view/director-view.component';
+import { GenreViewComponent } from './genre-view/genre-view.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SynopsisComponent } from './synopsis/synopsis.component';
 
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  { path: 'profile', component: ProfileViewComponent},
 ];
 
 @NgModule({
@@ -32,6 +39,11 @@ const appRoutes: Routes = [
     UserLoginFormComponent,
     MovieCardComponent,
     WelcomePageComponent,
+    ProfileViewComponent,
+    DirectorViewComponent,
+    GenreViewComponent,
+    NavbarComponent,
+    SynopsisComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +58,9 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatInputModule,
     RouterModule.forRoot(appRoutes),
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    NavbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

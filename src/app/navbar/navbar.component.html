@@ -1,0 +1,18 @@
+<mat-toolbar class="navbar">
+    <span class="nav-logo">
+      <a routerLink="/movies">Movies</a>
+    </span>
+  
+    <span class="nav-profile">
+      <a routerLink="/profile">
+        Profile
+      </a>
+    </span>
+  
+    <span class="nav-logout">
+      <a mat-button (click)="logout()" class="logout-button">
+        <mat-icon>logout</mat-icon>
+        <span class="nav-logout__text">Logout</span>
+      </a>
+    </span>
+  </mat-toolbar>
