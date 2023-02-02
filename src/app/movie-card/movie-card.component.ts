@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchApiDataService } from '../fetch-api-data.service';
+import { UserRegistrationService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';//Display notification
 
-import { GenreComponent } from '../genre/genre.component';
-import { DirectorComponent } from '../director/director.component';
 import { SynopsisComponent } from '../synopsis/synopsis.component';
+import { DirectorComponent } from '../director-view/director-view.component';
+import { GenreComponent } from '../genre-view/genre-view.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -20,7 +20,7 @@ export class MovieCardComponent implements OnInit {
   favoriteMovies: any[]=[];
 
   constructor(
-    public fetchApiDataService: FetchApiDataService,
+    public UserRegistrationService: UserRegistrationService,
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     ) {}
@@ -32,14 +32,14 @@ export class MovieCardComponent implements OnInit {
   }
 
   getMovies(): void {
-    this.fetchApiDataService.getAllMovies().subscribe((res: any)=>{
+    this.UserRegistrationService.getAllMovies().subscribe((res: any)=>{
       this.movies=res;
       return this.movies;
     })
   }
 
   getFavMovies(): void {
-    this.fetchApiDataService.getUser().subscribe((res: any)=>{
+    this.UserRegistrationService.getUser().subscribe((res: any)=>{
       this.favoriteMovies=res.FavoriteMovies;
       return this.favoriteMovies;
     })
@@ -75,7 +75,7 @@ export class MovieCardComponent implements OnInit {
 
   onToggleFavMovie(id: string): void {
     if(!this.favoriteMovies.includes(id)) {
-      this.fetchApiDataService.addFavoriteMovie(id).subscribe((res)=>{
+      this.UserRegistrationService.addFavoriteMovie(id).subscribe((res)=>{
         this.favoriteMovies=res.FavoriteMovies;
         this.snackBar.open('Movie added to favourites.', 'OK', {
           duration: 3000
@@ -87,7 +87,7 @@ export class MovieCardComponent implements OnInit {
         });
       })
     } else {
-      this.fetchApiDataService.deleteFavoriteMovie(id).subscribe((res)=>{
+      this.UserRegistrationService.removeFavoriteMovie(id).subscribe((res)=>{
         this.favoriteMovies=res.FavoriteMovies;
         this.snackBar.open('Movie removed from favourites.', 'OK', {
           duration: 3000

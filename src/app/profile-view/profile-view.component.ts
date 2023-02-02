@@ -42,7 +42,7 @@ onDeleteAccount(username: string): void {
     });
   }
 
-  this.UserRegistrationService.deleteUser(username).subscribe(res=>{
+  this.UserRegistrationService.deleteUser().subscribe(res=>{
     console.log('deleteAccountRes:', res);
   })
 }

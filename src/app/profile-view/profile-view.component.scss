@@ -15,7 +15,7 @@
     flex-direction: column;
     box-shadow: 0 0 10px grey;
     justify-content: space-between;
-    color:$textColor;
+    color: #000;
   }
   
   .update-form {
@@ -28,7 +28,7 @@
     font-weight: 500;
     display: flex;
     justify-content: center;
-    color: $primary;
+    color: #8D918D;
     margin-bottom: 36px;
   }
   
@@ -39,17 +39,17 @@
   }
   
   .mat-mdc-raised-button.mat-primary{
-    background-color: $btnColor;
+    background-color: #000080;
     color: white;
   }
   
   .mat-mdc-raised-button.mat-warn{
-    background-color: $primary;
+    background-color: #8D918D;
     color: white;
   }
   
   mat-label {
-    color: $textColor;
+    color: #000;
   }
   
   @media all and (max-width: 300px) {
