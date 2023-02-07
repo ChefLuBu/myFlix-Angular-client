@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRegistrationService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';//Display notification
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { SynopsisComponent } from '../synopsis/synopsis.component';
 import { DirectorComponent } from '../director-view/director-view.component';
@@ -27,8 +27,8 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
-    this.getFavMovies();
-    
+    this.getFavoriteMovies();
+   
   }
 
   getMovies(): void {
@@ -38,9 +38,10 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
-  getFavMovies(): void {
+  getFavoriteMovies(): void {
     this.UserRegistrationService.getUser().subscribe((res: any)=>{
-      this.favoriteMovies=res.FavoriteMovies;
+      console.log("res=fave movies",res)
+      this.favoriteMovies=res.favoriteMovies;
       return this.favoriteMovies;
     })
   }
@@ -74,10 +75,11 @@ export class MovieCardComponent implements OnInit {
   }
 
   onToggleFavMovie(id: string): void {
+    console.log("click", id)
     if(!this.favoriteMovies.includes(id)) {
       this.UserRegistrationService.addFavoriteMovie(id).subscribe((res)=>{
-        this.favoriteMovies=res.FavoriteMovies;
-        this.snackBar.open('Movie added to favourites.', 'OK', {
+        this.favoriteMovies=res.favoriteMovies;
+        this.snackBar.open('Movie added to favorites.', 'OK', {
           duration: 3000
        })
       }, (res) => {
@@ -88,7 +90,7 @@ export class MovieCardComponent implements OnInit {
       })
     } else {
       this.UserRegistrationService.removeFavoriteMovie(id).subscribe((res)=>{
-        this.favoriteMovies=res.FavoriteMovies;
+        this.favoriteMovies=res.favoriteMovies;
         this.snackBar.open('Movie removed from favourites.', 'OK', {
           duration: 3000
        })

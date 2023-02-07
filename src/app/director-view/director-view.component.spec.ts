@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DirectorViewComponent } from './director-view.component';
+import { DirectorComponent } from './director-view.component';
 
 describe('DirectorViewComponent', () => {
-  let component: DirectorViewComponent;
-  let fixture: ComponentFixture<DirectorViewComponent>;
+  let component: DirectorComponent;
+  let fixture: ComponentFixture<DirectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DirectorViewComponent ]
+      declarations: [ DirectorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DirectorViewComponent);
+    fixture = TestBed.createComponent(DirectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

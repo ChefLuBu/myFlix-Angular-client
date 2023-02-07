@@ -87,6 +87,7 @@ export class UserRegistrationService {
       );
   }
 
+
   getUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -103,11 +104,12 @@ export class UserRegistrationService {
       );
   }
 
-  getFavoriteMovies(): Observable<any> {
+
+  addFavoriteMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     return this.http
-      .get(`${apiUrl}users/${username}/movies`, {
+      .post(`${apiUrl}users/${username}/movies/${movieId}`,{}, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -118,11 +120,11 @@ export class UserRegistrationService {
       );
   }
 
-  addFavoriteMovie(movieId: string): Observable<any> {
+  removeFavoriteMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
     return this.http
-      .put(`${apiUrl}users/${username}/movies/${movieId}`, {
+      .delete(`${apiUrl}users/${username}/movies/${movieId}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -132,6 +134,7 @@ export class UserRegistrationService {
         catchError(this.handleError)
       );
   }
+
 
   updateUser(updatedUser: any): Observable<any> {
     const token = localStorage.getItem('token');
@@ -163,20 +166,7 @@ export class UserRegistrationService {
       );
   }
 
-  removeFavoriteMovie(movieId: string): Observable<any> {
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-    return this.http
-      .delete(`${apiUrl}users/${username}/movies/${movieId}`, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
-      .pipe(
-        map(this.extractResponseData),
-        catchError(this.handleError)
-      );
-  }
+  
 
   private extractResponseData(res: any): any {
     const body = res;

@@ -1,11 +1,10 @@
-.profile-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-self: stretch;
+.profile-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  background-color:#2a9d8f;
+
   }
   
   mat-card {
@@ -30,6 +29,12 @@
     justify-content: center;
     color: #8D918D;
     margin-bottom: 36px;
+    background-color:#264653;
+
+  }
+
+  mat-card-title{
+    font-size: larger;
   }
   
   .card-actions {
@@ -39,7 +44,7 @@
   }
   
   .mat-mdc-raised-button.mat-primary{
-    background-color: #000080;
+    background-color: #264653;
     color: white;
   }
   

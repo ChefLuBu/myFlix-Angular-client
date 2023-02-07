@@ -3,8 +3,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-director',
-  templateUrl: './director.component.html',
-  styleUrls: ['./director.component.scss']
+  templateUrl: './director-view.component.html',
+  styleUrls: ['./director-view.component.scss']
 })
 export class DirectorComponent {
   constructor(

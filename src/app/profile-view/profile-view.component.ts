@@ -3,15 +3,16 @@ import { UserRegistrationService } from '../fetch-api-data.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-profile-view',
   templateUrl: './profile-view.component.html',
   styleUrls: ['./profile-view.component.scss']
 })
 export class ProfileViewComponent {
-   users: any = {}
+   user: any = {}
 
-   @Input() userUpdateData = { Username: '', Passoword: '', Email: '', Birthday:'' };
+   @Input() userUpdateData = { Username: '', Password: '', Email: '', Birthday:'' };
 
   constructor(public UserRegistrationService: UserRegistrationService,
     public snackBar: MatSnackBar,
@@ -24,14 +25,14 @@ ngOnInit(): void {
 
 getUser(): void {
   this.UserRegistrationService.getUser().subscribe((res: any) => {
-      this.users = res;
-      console.log(this.users);
-      return this.users;
+      this.user = res;
+      console.log(this.user);
+      return this.user;
     });
   }
 
 
-onDeleteAccount(username: string): void {
+onDeleteAccount(): void {
   if (confirm('Are you sure you want to delete your account? This action cannnot be undone.')) {
     this.router.navigate(['welcome']).then(() => {
       localStorage.removeItem('token');

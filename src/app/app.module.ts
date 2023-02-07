@@ -23,6 +23,7 @@ import { GenreComponent } from './genre-view/genre-view.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 const appRoutes: Routes = [
@@ -60,8 +61,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MatIconModule,
     MatTabsModule,
-    NavbarComponent
-  ],
+    MatToolbarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

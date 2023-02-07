@@ -3,6 +3,9 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    background-color:#264653;
+    // background-image: linear-gradient(180deg, #264653, #e76f51, #264653);
+
     mat-card {
         max-width: 300px;
       img {
@@ -12,3 +15,74 @@
       }
     }
   }
+
+
+mat-card-header{
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card-title{
+  font-weight:900;
+  font-size: 21px;
+  color: #e9c46a;
+  margin-bottom: 3px;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 3px #e76f51,
+        0.05em 0 black,
+        0 0.05em black,
+        -0.05em 0 #2a9d8f,
+        0 -0.05em #2a9d8f,
+        -0.05em -0.05em black,
+        -0.05em 0.05em black,
+        0.05em -0.05em black,
+        0.05em 0.05em black;
+  &:first-letter{
+    font-size: 22px;
+    
+  }
+}
+
+mat-card-subtitle{
+  font-weight:900;
+  font-size: 19px;
+  color: #e9c46a;
+  margin-bottom: 3px;
+  text-shadow: 3px 3px 4px #264653;
+  text-shadow: 2px 2px 3px #e76f51,
+  0.05em 0 black,
+  0 0.05em black,
+  -0.05em 0 #2a9d8f,
+  0 -0.05em #2a9d8f,
+  -0.05em -0.05em black,
+  -0.05em 0.05em black,
+  0.05em -0.05em black,
+  0.05em 0.05em black;
+}
+
+button{
+  background-color: #e9c46a;
+  box-shadow: 3px 3px 4px #e76f51;
+  border: 2px solid #e76f51;
+  font-family: inherit;
+  font-size: large;
+  font-weight:bold;
+  color:#2a9d8f;
+  float:left;
+}
+
+
+
+button:hover, button:active{
+  background-color: #e76f51;
+  transition-duration: 0.4s;
+}
+
+.poster{
+  border-color: #fff;
+  border-style: ridge;
+  border-width: 10px;
+}
+mat-icon{
+  color: #2a9d8f;
+}
