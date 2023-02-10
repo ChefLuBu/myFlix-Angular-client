@@ -3,6 +3,9 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(45deg, #2a9d8f, #e76f51);
+    height:100vh;
+    z-index: 10;
+    position: relative;
 }
 .welcome-message{
     margin:0%;

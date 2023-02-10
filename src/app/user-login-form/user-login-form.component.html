@@ -1,5 +1,6 @@
 <!-- src/app/user-login-form/user-login-form.component.html -->
-<mat-card>
+<div id="signindivcontainer">
+<mat-card class="loginform">
     <mat-card-header>
       <mat-card-title>Sign In!</mat-card-title>
     </mat-card-header>
@@ -7,7 +8,7 @@
       <form>
         <mat-form-field>
           <input
-            matInput
+            
             [(ngModel)]="loginData.Username"
             placeholder="Username"
             type="text"
@@ -17,7 +18,7 @@
           </mat-form-field>
           <mat-form-field>
           <input
-            matInput
+            
             [(ngModel)]="loginData.Password"
             type = "password"
             placeholder="Password"
@@ -37,3 +38,4 @@
         </button>
     </mat-card-actions>
   </mat-card>
+</div>

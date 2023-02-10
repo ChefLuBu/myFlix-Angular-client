@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    background: linear-gradient(90deg, #2a9d8f, #e76f51);
+    background: #e76f51;
     // background-image: linear-gradient(180deg, #264653, #e76f51, #264653);
 
     mat-card {
@@ -28,7 +28,7 @@ mat-card-title{
   color: #e9c46a;
   margin-bottom: 3px;
   letter-spacing: -1px;
-  text-shadow: 2px 2px 3px #e76f51,
+  text-shadow: 2px 2px 3px #2a9d8f,
         0.05em 0 black,
         0 0.05em black,
         -0.05em 0 #2a9d8f,
@@ -49,7 +49,7 @@ mat-card-subtitle{
   color: #e9c46a;
   margin-bottom: 3px;
   text-shadow: 3px 3px 4px #264653;
-  text-shadow: 2px 2px 3px #e76f51,
+  text-shadow: 2px 2px 3px #2a9d8f,
   0.05em 0 black,
   0 0.05em black,
   -0.05em 0 #2a9d8f,
@@ -62,8 +62,8 @@ mat-card-subtitle{
 
 button{
   background-color: #e9c46a;
-  box-shadow: 3px 3px 4px #e76f51;
-  border: 2px solid #e76f51;
+  box-shadow: 3px 3px 4px #2a9d8f;
+  border: 2px solid #264653;
   font-family: inherit;
   font-size: large;
   font-weight:bold;
@@ -79,8 +79,8 @@ button:hover, button:active{
 }
 
 .poster{
-  border-color: #fff;
-  border-style: ridge;
+  border-color: #2a9d8f;
+  border-style:inset;
   border-width: 10px;
 }
 mat-icon{

@@ -25,6 +25,12 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+// Get Ted to help with
+// if(this.dialog.openDialogs.length==0){
+//   dialogRef = this.dialog.open(ModalComponent, {
+//    disableClose: true  
+//  });
+
   // This is the function responsible for sending the form inputs to the backend
   loginUser(): void {
     this.UserRegistrationService.userLogin(this.loginData).subscribe((result) => {

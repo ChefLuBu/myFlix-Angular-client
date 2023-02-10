@@ -1,3 +1,17 @@
+#signindivcontainer{
+  width: 100vw;
+  height: 100vh;
+  position:fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0, 0.25);
+  text-align: center;
+  z-index: 20;
+}
+mat-card.loginform{
+  margin: 50px auto;
+  max-width: 300px;
+}
 mat-card{
   margin: 0;
   padding: 0;
@@ -15,7 +29,7 @@ mat-card{
 }
 mat-card-title {
   font-size: 2em;
-  border-left: 5px solid dodgerblue;
+  border-left: 5px solid #2a9d8f;
   padding: 10px;
   color: #000;
   letter-spacing: 5px;
@@ -36,7 +50,7 @@ mat-card-title {
   width: 100%;
   border: 2px solid #000;
   outline: none;
-  background: none;
+  background: transparent;
   padding: 10px;
   border-radius: 10px;
   font-size: 1.2em;
@@ -59,12 +73,12 @@ mat-card-title {
 }
 .center .inputbox [type="button"] {
   width: 50%;
-  background: dodgerblue;
+  background: #2a9d8f;
   color: #fff;
   border: #fff;
 }
 .center .inputbox:hover [type="button"] {
-  background: linear-gradient(45deg, greenyellow, dodgerblue);
+  background: linear-gradient(45deg, #e76f51, #2a9d8f);
 }
 
 button{

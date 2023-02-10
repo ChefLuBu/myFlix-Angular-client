@@ -12,7 +12,8 @@ export class DirectorComponent {
     public data: {
       Name: string;
       Bio: string;
-      Birth: string;
+      Birthyear: string;
+      Deathyear: string;
     }
   ) {}
 }
