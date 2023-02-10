@@ -4,7 +4,9 @@
     justify-content: center;
     width: 100%;
     background: #e76f51;
-    // background-image: linear-gradient(180deg, #264653, #e76f51, #264653);
+    z-index: 10;
+    position: relative;
+  }
 
     mat-card {
         max-width: 300px;
@@ -14,9 +16,7 @@
 
       }
     }
-  }
-
-
+  
 mat-card-header{
   justify-content: center;
   align-items: center;
