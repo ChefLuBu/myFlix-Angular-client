@@ -14,8 +14,10 @@ import { Router } from '@angular/router';
 export class UserLoginFormComponent implements OnInit {
 
   @Input() loginData = { Username: '', Password: '' };
-  //input decorator binds the input values to the userData object, which then binds it to user registration to send to API
-
+  /** input decorator binds the input values to the 
+  userData object, which then binds it to user registration 
+  to send to API
+  */
   constructor(
     public UserRegistrationService: UserRegistrationService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -26,12 +28,15 @@ export class UserLoginFormComponent implements OnInit {
   }
 
 
+  /** This is the function responsible for 
+  sending the form inputs to the backend
+  @function loginUser
+  */
 
-  // This is the function responsible for sending the form inputs to the backend
   loginUser(): void {
     this.UserRegistrationService.userLogin(this.loginData).subscribe((result) => {
       // Logic for a successful user registration goes here! (To be implemented)
-      console.log(result)
+      // console.log(result)
       localStorage.setItem('token', result.token)
       localStorage.setItem("user", result.user.Username)
       this.dialogRef.close(); // This will close the modal on success!

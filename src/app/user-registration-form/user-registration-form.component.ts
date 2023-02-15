@@ -29,6 +29,10 @@ constructor(
 ngOnInit(): void {
 }
 
+/**
+ * sends register form inputs to database
+ * @function registerUser
+ */
 
 // This is the function responsible for sending the form inputs to the backend
 registerUser(): void {

@@ -22,6 +22,10 @@ export class ProfileViewComponent {
 ngOnInit(): void {
    this.getUser();
 }
+/**
+ * Get user data from API
+ * @function getUser
+ */
 
 getUser(): void {
   this.UserRegistrationService.getUser().subscribe((res: any) => {
@@ -31,7 +35,10 @@ getUser(): void {
     });
   }
 
-
+/**
+ * Warning notification for account deletion and success
+ * @function onDeleteAccount
+ */
 onDeleteAccount(): void {
   if (confirm('Are you sure you want to delete your account? This action cannnot be undone.')) {
     this.router.navigate(['welcome']).then(() => {
@@ -50,9 +57,9 @@ onDeleteAccount(): void {
 
 /**
  * Update user info
- * 
- * @remarks
- * Make API call to update the user, reset the localstorage and reload the profile-page
+ * Make API call to update the user, reset the localstorage and
+ *  reload the profile-page
+ * @function onUserUpdate
  */
 onUserUpdate(): void {
   this.UserRegistrationService.updateUser(this.userUpdateData).subscribe((response) => {

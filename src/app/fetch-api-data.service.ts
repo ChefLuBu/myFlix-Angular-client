@@ -11,10 +11,19 @@ const apiUrl = 'https://movie-api-xfet.onrender.com/';
 })
 export class UserRegistrationService {
   // Inject the HttpClient module to the constructor params
-  // This will provide HttpClient to the entire class, making it available via this.http
+  // This will provide HttpClient to the entire class
+  // making it available via this.http
+  
   constructor(private http: HttpClient) {
   }
   // Making the api call for the user registration endpoint
+
+  /**
+   * @service POST to he user endpoint
+   * @param userDetails 
+   * @returns A JSON object with the user's day
+   * @function userRegistration
+   */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
@@ -22,16 +31,29 @@ export class UserRegistrationService {
     );
   }
 
+/**
+ * User login 
+ * @service POST - login endpoint
+ * @param userDetails 
+ * @returns A JSON object of the logged-in user's data
+ * @functon userLogin
+ */
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
       .post(apiUrl + 'login', userDetails)
       .pipe(catchError(this.handleError));
   }
+/**
+ * @service GET all movies - movies endpoint
+ * @returns  A JSON obect with all movie data
+ * @function getAllMovies
+ */
 
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
-    //requires the token to get all movies, pulls from local storage after login
+    //requires the token to get all movies, pulls from local 
+    //storage after login
     return this.http
       .get(apiUrl + 'movies', {
         headers: new HttpHeaders({
@@ -43,6 +65,14 @@ export class UserRegistrationService {
         catchError(this.handleError)
       );
   }
+
+  /**
+   * @GET a single movie from the movies endpoint
+   * @param title 
+   * @returns a JSON object containing data about selected movie
+   * @fusnction getMovie
+   */
+
 //Title, Director name, Genre are all strings
   getMovie(title: string): Observable<any> {
     const token = localStorage.getItem('token');
@@ -59,6 +89,13 @@ export class UserRegistrationService {
       );
   }
 
+  /**
+   * GET data about a director from the database and display block
+   * @param directorName 
+   * @returns a JSON object containing director data
+   * @function getDirector
+   */
+
   getDirector(directorName: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
@@ -72,6 +109,13 @@ export class UserRegistrationService {
         catchError(this.handleError)
       );
   }
+
+  /**
+   * @service get data about genre by name from the database
+   * @param genreName 
+   * @returns a JSON object holding the name & genre of a movie
+   * @function getGenre
+   */
 
   getGenre(genreName: string): Observable<any> {
     const token = localStorage.getItem('token');
@@ -87,6 +131,12 @@ export class UserRegistrationService {
       );
   }
 
+  /**
+   * Get user
+   * @service GET user data by name from username endpoint
+   * @returns  a JSON object containing user's data
+   * @function getUser
+   */
 
   getUser(): Observable<any> {
     const token = localStorage.getItem('token');
@@ -104,7 +154,12 @@ export class UserRegistrationService {
       );
   }
 
-
+/***
+ * @service POST a movie to user's favorite movies array
+ * @param movieId
+ * @returns a JSON object containing the updated array data
+ * @function addFavoriteMovie
+ */
   addFavoriteMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -119,6 +174,13 @@ export class UserRegistrationService {
         catchError(this.handleError)
       );
   }
+
+/**
+ * @service DELETE's favorite movie from user data array
+ * @param movieId 
+ * @returns a JSON object containing updated user array 
+ * @function removeFavoriteMovie
+ */
 
   removeFavoriteMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
@@ -135,6 +197,12 @@ export class UserRegistrationService {
       );
   }
 
+  /**
+   * @service PUT request that updates user data 
+   * @param updatedUser 
+   * @returns a JSON object with updated data
+   * @function updateUser
+   */
 
   updateUser(updatedUser: any): Observable<any> {
     const token = localStorage.getItem('token');
@@ -150,7 +218,11 @@ export class UserRegistrationService {
         catchError(this.handleError)
       );
   }
-
+/**
+ * @service Deteles user
+ * @returns  a message upon successful deletetion
+ * @function deleteUser
+ */
   deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -166,12 +238,23 @@ export class UserRegistrationService {
       );
   }
 
-  
+  /**
+   * Extracts respons data from the HTTP response
+   * @param res 
+   * @returns the response body or empty object
+   */
 
   private extractResponseData(res: any): any {
     const body = res;
     return body || {};
   }
+
+  /**
+   * Handles API call errors
+   * @param error 
+   * @returns error message
+   * @function handleError
+   */
 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {

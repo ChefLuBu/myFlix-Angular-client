@@ -30,6 +30,11 @@ export class MovieCardComponent implements OnInit {
     this.getFavoriteMovies();
    
   }
+/**
+ * @returns all movies in an array
+ * @function getMovies
+ */
+
 
   getMovies(): void {
     this.UserRegistrationService.getAllMovies().subscribe((res: any)=>{
@@ -37,6 +42,13 @@ export class MovieCardComponent implements OnInit {
       return this.movies;
     })
   }
+
+
+  /**f
+   * @returns an array of movies favorited by the user, if no
+   * favorited movies exist, returns an empty array
+   * @function getFavoriteMovies
+   */
 
   getFavoriteMovies(): void {
     this.UserRegistrationService.getUser().subscribe((res: any)=>{
@@ -46,6 +58,13 @@ export class MovieCardComponent implements OnInit {
     })
   }
 
+  /**
+   * 
+   * @param name 
+   * @param genreName
+   * @function openGenreDialog 
+   */
+
   openGenreDialog(name: string, genreName: string): void {
     this.dialog.open(GenreComponent, {
       data: {
@@ -54,6 +73,15 @@ export class MovieCardComponent implements OnInit {
         }
     });
   }
+
+  /**
+   * 
+   * @param name 
+   * @param bio 
+   * @param birthyear 
+   * @param deathyear 
+   * @function openDirectorDialog
+   */
 
   openDirectorDialog(name: string, bio: string, birthyear: string, deathyear: string): void {
     this.dialog.open(DirectorComponent, {
@@ -66,6 +94,13 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * 
+   * @param title 
+   * @param description
+   * @function openSynopsisDialog 
+   */
+  
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisComponent, {
       data: {
@@ -75,6 +110,10 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * 
+   * @param id 
+   */
   onToggleFavMovie(id: string): void {
     console.log("click", id)
     if(!this.favoriteMovies.includes(id)) {

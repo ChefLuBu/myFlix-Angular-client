@@ -3,7 +3,6 @@ import { UserLoginFormComponent } from '../user-login-form/user-login-form.compo
 import { UserRegistrationFormComponent } from '../user-registration-form/user-registration-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-// import { ProfileViewComponent } from '../profile-view/profile-view.component';
 
 @Component({
   selector: 'app-welcome-page',
@@ -29,9 +28,4 @@ export class WelcomePageComponent implements OnInit {
       width: '280px'
     });
   }
-  // openProfileDialog(): void {
-  //   this.dialog.open(ProfileViewComponent, {
-  //     width: '280px'
-  //   });
-  // }
 }
