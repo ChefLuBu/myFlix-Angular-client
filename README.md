@@ -25,6 +25,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Angular Material
 * TypeScript
 * TypeDoc
+* SASS
 
 ## Links
 * Live App: https://cheflubu.github.io/myFlix-Angular-client/
