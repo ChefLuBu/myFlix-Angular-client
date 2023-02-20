@@ -18,6 +18,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   - Update their profile
   - Delete their account
 
+## Screenshots
+![A screenshot of the mainpage](./public/movies.png)
 
 ## Technologies Used
 
